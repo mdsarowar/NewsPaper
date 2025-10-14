@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AnalyticsController;
 use App\Http\Controllers\Admin\AdminCommentController;
 use App\Http\Controllers\Frontend\CommentController;
 use App\Http\Controllers\Frontend\FrontendController;
@@ -43,7 +44,7 @@ Route::post('register',[AuthController::class,'registerStore'])->name('register.
 //Route::prefix('admin')->middleware('auth')->group(function(){});
 
 //Route::group(['middleware'=>'auth',],function(){
-    Route::prefix('admin')->middleware('auth')->group(function(){
+ Route::prefix('admin')->middleware('auth')->group(function(){
     Route::post('logout',[AuthController::class,'logout'])->name('logout');
     Route::get('home',[DashboardController::class,'index'])->name('home');
     Route::resource('users',UserController::class);
@@ -64,6 +65,7 @@ Route::post('register',[AuthController::class,'registerStore'])->name('register.
     Route::post('/comments/{id}/reject', [AdminCommentController::class, 'reject'])->name('comments.reject');
     Route::post('/comments/bulk-action', [AdminCommentController::class, 'bulkAction'])->name('comments.bulk-action');
     Route::delete('/comments/{id}', [AdminCommentController::class, 'destroy'])->name('comments.destroy');
+    Route::get('/analytics', [AnalyticsController::class, 'index'])->name('analytics.index');
 
 });
 

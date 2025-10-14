@@ -45,6 +45,11 @@
                     <i class="fas fa-home mr-3"></i>
                     <span>Dashboard</span>
                 </a>
+                <a href="{{route('analytics.index')}}"
+                   class="flex items-center rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <i class="fas fa-home mr-3"></i>
+                    <span>Analytics Dashboard</span>
+                </a>
             </div>
 
             <!-- Users with submenu -->
@@ -206,67 +211,15 @@
 {{--                    </a>--}}
                 </div>
             </div>
-            <!-- Projects with submenu -->
-            <div class="mb-1" x-data="{ open: false }">
-                <button @click="open = !open"
-                        class="flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <div class="flex items-center">
-                        <i class="fas fa-users mr-3"></i>
-                        <span>Projects</span>
-                    </div>
-                    <i :class="open ? 'fas fa-chevron-down rotate-180' : 'fas fa-chevron-down'"
-                       class="text-xs transition-transform duration-200"></i>
-                </button>
-                <div x-show="open" x-transition class="ml-6 mt-1 space-y-1">
-                    <a href="/"
-                       class="block rounded-md px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700">
-                        All Projects
-                    </a>
-                    <a href="/"
-                       class="block rounded-md px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700">
-                        Active
-                    </a>
-                    <a href="/"
-                       class="block rounded-md px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700">
-                        complited
-                    </a>
-                </div>
-            </div>
-            <!-- Team with submenu -->
-            <div class="mb-1" x-data="{ open: false }">
-                <button @click="open = !open"
-                        class="flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <div class="flex items-center">
-                        <i class="fas fa-users mr-3"></i>
-                        <span>Team</span>
-                    </div>
-                    <i :class="open ? 'fas fa-chevron-down rotate-180' : 'fas fa-chevron-down'"
-                       class="text-xs transition-transform duration-200"></i>
-                </button>
-                <div x-show="open" x-transition class="ml-6 mt-1 space-y-1">
-                    <a href="/"
-                       class="block rounded-md px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700">
-                        Members
-                    </a>
-                    <a href="/"
-                       class="block rounded-md px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700">
-                        Role
-                    </a>
-                    <a href="/"
-                       class="block rounded-md px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700">
-                        Permission
-                    </a>
-                </div>
-            </div>
 
             <!-- Settings -->
-            <div class="mb-1">
-                <a href="/"
-                   class="flex items-center rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <i class="fas fa-cog mr-3"></i>
-                    <span>Settings</span>
-                </a>
-            </div>
+{{--            <div class="mb-1">--}}
+{{--                <a href="/"--}}
+{{--                   class="flex items-center rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">--}}
+{{--                    <i class="fas fa-cog mr-3"></i>--}}
+{{--                    <span>Settings</span>--}}
+{{--                </a>--}}
+{{--            </div>--}}
 
         </nav>
 
