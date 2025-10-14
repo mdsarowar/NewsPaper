@@ -84,6 +84,7 @@ class FrontendController extends Controller
         $comments = $article->comments()
 //            ->where('status', 'approved')
             ->whereNull('parent_id')
+            ->where('status', 'approved')
             ->with(['user',
                 'replies.user',
                 'replies.parent',

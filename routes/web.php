@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminCommentController;
 use App\Http\Controllers\Frontend\CommentController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Admin\TagController;
@@ -39,8 +40,10 @@ Route::get('login',[AuthController::class,'login'])->name('login');
 Route::post('login',[AuthController::class,'loginStore'])->name('login.store');
 Route::get('register',[AuthController::class,'register'])->name('register');
 Route::post('register',[AuthController::class,'registerStore'])->name('register.store');
+//Route::prefix('admin')->middleware('auth')->group(function(){});
 
-Route::group(['middleware'=>'auth'],function(){
+//Route::group(['middleware'=>'auth',],function(){
+    Route::prefix('admin')->middleware('auth')->group(function(){
     Route::post('logout',[AuthController::class,'logout'])->name('logout');
     Route::get('home',[DashboardController::class,'index'])->name('home');
     Route::resource('users',UserController::class);
@@ -52,6 +55,16 @@ Route::group(['middleware'=>'auth'],function(){
     Route::resource('categories',CategoryController::class);
     Route::resource('articles',ArticleController::class);
     Route::resource('tags',TagController::class);
+
+
+    // Comments Management
+    Route::get('/comments', [AdminCommentController::class, 'index'])->name('comments.index');
+    Route::get('/comments/{id}', [AdminCommentController::class, 'show'])->name('comments.show');
+    Route::post('/comments/{id}/approve', [AdminCommentController::class, 'approve'])->name('comments.approve');
+    Route::post('/comments/{id}/reject', [AdminCommentController::class, 'reject'])->name('comments.reject');
+    Route::post('/comments/bulk-action', [AdminCommentController::class, 'bulkAction'])->name('comments.bulk-action');
+    Route::delete('/comments/{id}', [AdminCommentController::class, 'destroy'])->name('comments.destroy');
+
 });
 
 //test

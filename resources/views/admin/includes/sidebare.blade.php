@@ -184,6 +184,28 @@
                     </a>
                 </div>
             </div>
+            <!--Tags-->
+            <div class="mb-1" x-data="{ open: false }">
+                <button @click="open = !open"
+                        class="flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <div class="flex items-center">
+                        <i class="fas fa-users mr-3"></i>
+                        <span>Comments</span>
+                    </div>
+                    <i :class="open ? 'fas fa-chevron-down rotate-180' : 'fas fa-chevron-down'"
+                       class="text-xs transition-transform duration-200"></i>
+                </button>
+                <div x-show="open" x-transition class="ml-6 mt-1 space-y-1">
+                    <a href="{{route('comments.index')}}"
+                       class="block rounded-md px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700">
+                        List
+                    </a>
+{{--                    <a href="{{route('articles.create')}}"--}}
+{{--                       class="block rounded-md px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700">--}}
+{{--                        Create--}}
+{{--                    </a>--}}
+                </div>
+            </div>
             <!-- Projects with submenu -->
             <div class="mb-1" x-data="{ open: false }">
                 <button @click="open = !open"
